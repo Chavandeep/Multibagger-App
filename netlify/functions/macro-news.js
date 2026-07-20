@@ -125,7 +125,7 @@ exports.handler = async function (event) {
     }
 
     const apiToken = getEnv('MARKETAUX_API_KEY')
-    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
+    const sevenDaysAgo = new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
     const url =
       'https://api.marketaux.com/v1/news/all' +
       `?api_token=${apiToken}` +
