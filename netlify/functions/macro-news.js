@@ -127,7 +127,7 @@ exports.handler = async function (event) {
     const url =
       'https://api.marketaux.com/v1/news/all' +
       `?api_token=${apiToken}` +
-      `&domains=${INDIAN_FINANCIAL_DOMAINS.join(',')}` +
+      // `&domains=${INDIAN_FINANCIAL_DOMAINS.join(',')}` +
       '&language=en' +
       `&search=${encodeURIComponent(MACRO_QUERY)}` +
       `&published_after=${sevenDaysAgo}` +
