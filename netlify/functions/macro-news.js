@@ -47,6 +47,18 @@ const INDIAN_FINANCIAL_DOMAINS = [
   'zeebiz.com',
   'ndtvprofit.com',
   'forbesindia.com',
+  'timesofindia.indiatimes.com',
+  'hindustantimes.com',
+  'indiatoday.in',
+  'news18.com',
+  'deccanherald.com',
+  'dnaindia.com',
+  'outlookindia.com',
+  'outlookbusiness.com',
+  'republicworld.com',
+  'freepressjournal.in',
+  'aninews.in',
+  'ptinews.com',
 ]
 
 // Keywords steering toward the same categories the old mock data covered:
@@ -85,7 +97,9 @@ function domainOf(sourceOrUrl) {
 }
 
 function isIndianSource(article) {
-  return !!domainOf(`${article.source || ''} ${article.url || ''}`)
+  const domainMatch = !!domainOf(`${article.source || ''} ${article.url || ''}`)
+  const entityMatch = (article.entities || []).some((e) => e.country === 'in')
+  return domainMatch || entityMatch
 }
 
 // Marketaux groups near-duplicate coverage of the same story and returns
@@ -152,8 +166,7 @@ exports.handler = async function (event) {
         url: best.url || a.url,
         source: best.source || a.source,
         publishedAt: best.publishedAt || a.published_at,
-        entities: (a.entities || []).map((e) => ({ symbol: e.symbol, name: e.name, sentiment: e.sentiment_score })),
-      }
+        entities: (a.entities || []).map((e) => ({ symbol: e.symbol, name: e.name, sentiment: e.sentiment_score, country: e.country })),      }
     })
 
     const indianOnly = allArticles.filter(isIndianSource)
