@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  /* Ledger palette */
+  --color-paper: #F3EEE1;
+  --color-paper-line: #DCD3B8;
+  --color-ink: #17281F;
+  --color-ink-soft: #3E4F44;
+  --color-ledger-green: #154734;
+  --color-ledger-green-deep: #0E332413;
+  --color-gold: #C99A2E;
+  --color-gold-bright: #E3B23C;
+  --color-gain: #1E6B4F;
+  --color-loss: #A23B2E;
+  --color-card: #FBF8EF;
+  --color-stamp: #8B2E2E;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", "Helvetica Neue", sans-serif;
+  --font-mono: "IBM Plex Mono", "Menlo", monospace;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: local("Georgia");
+}
+
+:root {
+  --rail-w: 5rem;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--color-paper);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ledger-bg {
+  background-color: var(--color-paper);
+}
+
+.tap-tile {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.tap-tile:active {
+  transform: scale(0.96);
+}
+
+/* visible focus ring for keyboard nav */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

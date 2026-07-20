@@ -1,0 +1,50 @@
+[build]
+  functions = "netlify/functions"
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/api/login"
+  to = "/.netlify/functions/sharekhan-login"
+  status = 200
+
+[[redirects]]
+  from = "/api/callback"
+  to = "/.netlify/functions/sharekhan-callback"
+  status = 200
+
+[[redirects]]
+  from = "/api/logout"
+  to = "/.netlify/functions/sharekhan-logout"
+  status = 200
+
+[[redirects]]
+  from = "/api/status"
+  to = "/.netlify/functions/sharekhan-status"
+  status = 200
+
+[[redirects]]
+  from = "/api/master"
+  to = "/.netlify/functions/sharekhan-master"
+  status = 200
+
+[[redirects]]
+  from = "/api/history"
+  to = "/.netlify/functions/sharekhan-history"
+  status = 200
+
+[[redirects]]
+  from = "/api/quote"
+  to = "/.netlify/functions/sharekhan-quote"
+  status = 200
+
+[[redirects]]
+  from = "/api/macro-news"
+  to = "/.netlify/functions/macro-news"
+  status = 200
+
+# SPA fallback for client-side routing — must come after the /api/* rules above
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
