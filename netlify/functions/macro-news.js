@@ -67,6 +67,8 @@ const MACRO_QUERY = [
   '"crude oil"', 'gold', 'Nifty', 'Sensex', 'NSE', 'BSE', '"stock market"', 'IPO',
   // Corporate & legal events
   'merger', 'acquisition', '"stake sale"', 'buyback', 'delisting', 'bankruptcy', 'insolvency', 'NCLT', '"court ruling"', 'strike', '"block deal"',
+  // Market activity & corporate finance
+  'derivatives', 'F&O', '"mutual fund"', 'silver', '"52-week high"', '"52-week low"', 'earnings', '"quarterly results"', 'capex', 'NBFC', '"credit rating"', '"credit score"', 'divestment', '"fixed deposit"',
 ].join('|')
 
 function getEnv(name) {
